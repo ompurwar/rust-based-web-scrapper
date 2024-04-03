@@ -34,13 +34,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 async fn setup_client() -> Result<Client, NewSessionError> {
-    let proxy = serde_json::json!({
-        "proxyType": "autodetect",
+    let proxy: Value = serde_json::json!({
+        "proxyType": "manual",
         "httpProxy": "50.174.145.8",
         "sslProxy": "80",
     });
     let caps = serde_json::json!({
-        "moz:firefoxOptions": { "args": ["-headless"] },
+        "browserName":"chrome",
         "proxy": proxy,
     });
 

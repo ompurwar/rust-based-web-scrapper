@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  selenium-server:
+    image: selenium/standalone-chrome:4.1.0-20211123
+    container_name: selenium-server
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+    restart: unless-stopped
